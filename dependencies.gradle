@@ -1,0 +1,9 @@
+ext {
+    supportLibraryVersion = '23.1.1'
+
+    dependencies = [
+            design: "com.android.support:design:$supportLibraryVersion",
+            appCompat: "com.android.support:appcompat-v7:$supportLibraryVersion",
+            jUnit: 'junit:junit:4.12',
+    ]
+}
