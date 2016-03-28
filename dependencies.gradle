@@ -5,5 +5,6 @@ ext {
             design: "com.android.support:design:$supportLibraryVersion",
             appCompat: "com.android.support:appcompat-v7:$supportLibraryVersion",
             jUnit: 'junit:junit:4.12',
+            butterKnife : 'com.jakewharton:butterknife:7.0.1'
     ]
 }

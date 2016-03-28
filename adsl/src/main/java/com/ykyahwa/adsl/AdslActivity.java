@@ -1,6 +1,7 @@
 package com.ykyahwa.adsl;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -14,6 +15,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
  * 실습 사이트
  * http://darksilber.tistory.com/150
@@ -21,24 +26,19 @@ import android.widget.Toast;
  */
 public class AdslActivity extends AppCompatActivity {
 
-    private DrawerLayout drawerLayout;
+    @Bind(R.id.drawer_layout)DrawerLayout drawerLayout;
+    @Bind(R.id.toolbar)Toolbar toolbar;
+
     private TabLayout tabLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adsl);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        ButterKnife.bind(this);
+
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showSnamBar(view);
-            }
-        });
-
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -77,7 +77,7 @@ public class AdslActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void showSnamBar(View view) {
+    @OnClick(R.id.fab)void showSnamBar(View view) {
         Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,4 +85,5 @@ public class AdslActivity extends AppCompatActivity {
             }
         }).show();
     }
+
 }

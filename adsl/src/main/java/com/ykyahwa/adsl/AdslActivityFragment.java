@@ -9,15 +9,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
  * A placeholder fragment containing a simple view.
  */
 public class AdslActivityFragment extends Fragment {
 
-    private TextInputLayout textInputLayout;
-    private EditText editText;
-    private Button btTilError;
-    private Button btEtError;
+    @Bind(R.id.til_input1)  TextInputLayout textInputLayout;
+    @Bind(R.id.et_input2)  EditText editText;
+    @Bind(R.id.bt_til_error)  Button btTilError;
+    @Bind(R.id.bt_et_error)  Button btEtError;
     public AdslActivityFragment() {
     }
 
@@ -26,29 +30,18 @@ public class AdslActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_adsl, container, false);
-        initialize(view);
+
+        ButterKnife.bind(this, view);
         return view;
     }
 
-    private void initialize(View view) {
-        textInputLayout = (TextInputLayout) view.findViewById(R.id.til_input1);
-        editText = (EditText) view.findViewById(R.id.et_input2);
-        btTilError = (Button) view.findViewById(R.id.bt_til_error);
-        btTilError.setOnClickListener(buttonClickListener);
-        btEtError = (Button) view.findViewById(R.id.bt_et_error);
-        btEtError.setOnClickListener(buttonClickListener);
 
-    }
-
-    private View.OnClickListener buttonClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            int id = v.getId();
-            if (id == R.id.bt_til_error) {
-                textInputLayout.setError("ID TextInputLayout 에러");
-            } else if (id == R.id.bt_et_error) {
-                editText.setError("PW EditText 에러");
-            }
+    @OnClick({R.id.bt_til_error,R.id.bt_et_error})  void click(View v) {
+        int id = v.getId();
+        if (id == R.id.bt_til_error) {
+            textInputLayout.setError("ID TextInputLayout 에러");
+        } else if (id == R.id.bt_et_error) {
+            editText.setError("PW EditText 에러");
         }
-    };
+    }
 }
