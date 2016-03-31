@@ -1,1 +1,1 @@
-include ':adsl'
+include ':adsl', ':sns'
