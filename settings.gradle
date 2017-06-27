@@ -1,1 +1,1 @@
-include ':adsl', ':sns'
+include ':adsl', ':sns', ':recyclerviewtest'

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ToyProject.iml" filepath="$PROJECT_DIR$/ToyProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/adsl/adsl.iml" filepath="$PROJECT_DIR$/adsl/adsl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recyclerviewtest/recyclerviewtest.iml" filepath="$PROJECT_DIR$/recyclerviewtest/recyclerviewtest.iml" />
       <module fileurl="file://$PROJECT_DIR$/sns/sns.iml" filepath="$PROJECT_DIR$/sns/sns.iml" />
     </modules>
   </component>
